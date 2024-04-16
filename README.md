@@ -1,2 +1,6 @@
 # this repo for C++ learn. 
-# including C++ grammer and advanced C++ coding tools, STL, and C21 standard
+
+1. C++ grammer 
+2. advanced C++ coding tools
+3. STL, 
+4. C21 standard
