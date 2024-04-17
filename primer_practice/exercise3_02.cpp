@@ -30,8 +30,8 @@ void readWord() {
 
 /* 这个文件需要用terminal 手动编译运行。VS不支持debug consle cin 功能 */
 int main() {
-    // readLine();
-    readWord();
+    readLine();
+    // readWord();
     return 0;
 }
 /*output
