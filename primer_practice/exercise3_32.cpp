@@ -16,6 +16,7 @@ int main() {
     for (int i = 0; i < v1.size(); i++) {
         cout << v1[i] << " " << v2[i] <<  " " << v3[i] << endl;
     }
+
     return 0;
 }
 /*当你复制一个 std::vector 对象时，所进行的是深拷贝（deep copy）。
