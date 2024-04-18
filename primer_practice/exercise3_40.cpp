@@ -13,7 +13,7 @@ int main() {
     char s3[100];
     strcpy(s3, s1);
     strcat(s3, " ");
-    strcat(s3, s2);
+    strcat(s3, s2);  // s2 addto to s3, not cover
 
     cout << s1 <<  " " << s2 << " " << s3 << endl;
     return 0;
