@@ -10,7 +10,10 @@ void print(Iter first, Iter last) {
         return;
     }
     cout << *first << " ";
-    print(++first, last);  // noting using ++first. if using first++, always 1.
+    // pass first + 1 should be OK too
+    print(first + 1, last);
+
+    // print(++first, last);  // noting using ++first. if using first++, always 1.
     // never meet the end. Also it is not reference, so we will never change first val
 }
 
