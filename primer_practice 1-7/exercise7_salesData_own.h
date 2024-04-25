@@ -13,7 +13,8 @@ class SalesData {
     // lhs: left hand side
     friend SalesData add(const SalesData& lhs, const SalesData& rhs);
 public:
-    // constructor. first one will be used for all following. p is single unit price
+    /* this is a good example of delegating constructor */
+    // main constructor. first one will be used for all following. p is single unit price
     SalesData(const string& s, unsigned n, double p) : bookNum(s), units_sold(n), revenue(p * n) {
         cout << "SalesData(const string& s, unsigned n, double p)" << endl;
     }
