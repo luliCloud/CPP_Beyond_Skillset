@@ -6,6 +6,8 @@
 #include <vector>
 using namespace std;
 
+/*我们为什么没有在PersonInfo中使用类内初始化？
+因为这里只需要聚合类就够了，所以没有必要在 PersionInfo 中使用类内初始化。*/
 struct PersonInfo {
     // struct auto define field members as public
     string name;
