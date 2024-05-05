@@ -38,6 +38,10 @@ void findAndInsert(forward_list<string>& fl, const string& s1, const string& s2)
     while (curr != fl.end()) {
         if (*curr == s1) {
             fl.insert_after(curr, s2);
+            /* vector和list中的insert(it, val),将val插入it的前面，返回val的iterator
+            这里insert after，将val插入到curr后面。返回val的iterator
+            如果插入多个元素比如 fl.insert_after(curr, {s1,s2,s3}),
+            则返回s3的iterator（最后一个元素）。而vector和list则返回第一个插入元素的迭代器*/
             return;
         } else {
             prev = curr;
