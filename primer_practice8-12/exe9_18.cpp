@@ -7,6 +7,7 @@ using namespace std;
 all contetns in the deque */
 void printDequeFromIO(istream& is) {
     deque<string> input;
+    // list<string> input -> also works, no other changes needed
     string str;
     while (is >> str) {
         input.push_back(str);
@@ -24,8 +25,6 @@ int main() {
     return 0;
 }
 /*
-i am a 
-tree
-(output)
-i am a tree 
+yew ia ma
+input is: yew ia ma 
 */
