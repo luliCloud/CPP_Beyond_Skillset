@@ -24,7 +24,10 @@ int main() {
     cout << endl;
 
     vector<int> svec;
-    svec.reserve(10);
+    svec.reserve(10);  // 使用reserve可以预先分配空间，比push_back时dynamic allocate
+    // 空间的性能更高。比如 假定你希望每次读取一个字符存入一个string中，
+    // 而且知道最少需要读取100个字符，应该如何提高程序的性能？
+    // 用 reserve（100）就好很多
     for (int i = 0; i < 15; i++) {
         svec.push_back(i);
         cout << "capacity: " << svec.capacity() << " " << "size: " << svec.size() << endl;
