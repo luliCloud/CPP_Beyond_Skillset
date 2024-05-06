@@ -96,3 +96,7 @@ int main() {
     return 0;
     
 }
+/*
+day: 1 month: 12 year: 1990
+day: 1 month: 1 year: 299
+day: 28 month: 1 year: 1787*/
