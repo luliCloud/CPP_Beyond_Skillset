@@ -54,7 +54,6 @@ int main() {
     but it takes two iterator and a compartor */
     stable_sort(vec2.begin(), vec2.end(), isShorter); // not arg required for isShorter
     println(vec2);
-    
     return 0;
 }
 /*
@@ -62,5 +61,9 @@ Original: a v a s v a a
 after sort: a a a a s v v 
 after uniquea s v a   v 
 a s v 
+
+after sort: 1234 1234 1234 Hi alan wang 
+after unique: 1234 Hi alan wang   
+Hi 1234 alan wang
 */
 
