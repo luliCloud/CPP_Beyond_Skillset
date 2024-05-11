@@ -27,13 +27,16 @@ void print(const Sequence& seq, const string& msg) {
 
 void compare3inserter(const vector<int>& vec) {
     list<int> ls1, ls2, ls3, ls4;
+    // 永远插到begin的位置
     unique_copy(vec.cbegin(), vec.cend(), front_inserter(ls1));
     print(ls1, "front_inserter");
 
     unique_copy(vec.cbegin(), vec.cend(), back_inserter(ls2));
     print(ls2, "back_inserter");
 
-    // 注意 insert 插入到给定iterator的前一个位置
+    // 注意 insert 插入到给定iterator的位置，所有在原来iterator位置机以后的元素向后移动一位。然后it++。所以it仍然指向刚才指向的元素
+    // 所以在这个case里，第一个元素插在begin的位置后，整个vec中不包括插入元素的所有元素向后移动一个位置，然后it自己++。指向原来的起始
+    // e.g, {1,2} -> {0,1,2}, it指向1
     unique_copy(vec.cbegin(), vec.cend(), inserter(ls3, ls3.begin()));
     print(ls3, "inserter in ls.begin()");
 
