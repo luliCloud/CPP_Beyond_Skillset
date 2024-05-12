@@ -54,4 +54,8 @@ int main() {
 }
 /*
 1 2 1 2 3 
+inserted by front_inserter: 3 2 1 2 1 
+inserted by back_inserter: 1 2 1 2 3 
+inserted by inserter in ls.begin(): 1 2 1 2 3 
+inserted by inserter in ls.end(): 1 2 1 2 3 
 */
