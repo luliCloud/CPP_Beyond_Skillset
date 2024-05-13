@@ -18,7 +18,10 @@ private:
 public:
     void add(const string& last_name, const string& first_name, const string& birthday) {
         Child child = {first_name, birthday};
-        _data[last_name].push_back(child);
+        /**
+         * 注意 Data 不是一个实物对象，只是一个数据结构的别名。我们需要定义Data对应的obj 也就是_data
+        */
+        _data[last_name].push_back(child);  
     }
 
     void print() const {
