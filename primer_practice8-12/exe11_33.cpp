@@ -50,6 +50,11 @@ map<string, string> buildMap(ifstream& ifs) {
     while (ifs >> key && getline(ifs, word)) {
         if (word.size() > 1) {
             mp[key] = word.substr(1); // start from 1, skip first blank space
+            /**
+             * 当一个转换规则的关键字多次出现的时候，使用下标运算符会保留最后一次添加的规则，
+             * 而用insert则保留第一次添加的规则。
+            */
+           // trans_map.insert({key, value.substr(1)});
         } else {
             throw runtime_error("no rules for key: " + key);
         }
