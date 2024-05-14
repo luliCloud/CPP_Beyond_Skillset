@@ -27,6 +27,8 @@ void biggies(vector<string>& vec, size_t sz) {
     });
 
     // cout all string starting from wc
+    // find the first str.size() >= sz and return the iterator. noting sort size
+    // before, so all words before this it must be shorter.
     for_each(wc, vec.end(), [](const string& str){
         cout << str << " ";
     });
