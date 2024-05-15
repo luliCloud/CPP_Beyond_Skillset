@@ -23,7 +23,10 @@ public:
 
     bool empty() const { return data->empty(); }
 
-    void push_back(const string& str) const { data->push_back(str); }
+    /**
+     * data 本身属于Strblob，但是vector<string>不属于。所以这里没有改变data 而是改变vector是没有问题的，可以用const
+    */
+    void push_back(const string& str) const { data->push_back(str); } 
 
     void pop_back() const {
         check(0, "pop_back on empty StrBlob");
