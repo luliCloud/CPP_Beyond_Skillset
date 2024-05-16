@@ -57,6 +57,18 @@ void prinPtr(shared_ptr<vector<int>> p) {
     cout << endl;
 }
 
+/** 
+ * 关于创建共享共建的第二个智能指针。它需要的是第一个智能指针，而不是第一个ptr指向的原空间
+*/
+void sharedPtr2(shared_ptr<int> p1) {
+    cout << "before copy: " << p1.use_count() << endl;
+    shared_ptr<int> p2 = p1;  
+    // shared_ptr<int> p2 = shared_ptr<int>(p1.get()), wrong. p1.get() obtain original 
+    // address of ptr, not the p1 itself. such way make p2 thought it is the only ptr
+    // pointing to this address. when p2 delete its space, the p1 become dangling ptr
+    cout <<"p2: " << p2.use_count() << endl;
+}
+
 int main() {
     vector<int>* vp = allocVector();
     assignVector(vp);
@@ -68,6 +80,19 @@ int main() {
     assignVectorPtr(sp);
     prinPtr(sp);
 
+    shared_ptr<int> p1 = make_shared<int>(42);
+    cout << "before first sharedPtr2 copy: " << p1.use_count() << endl;  // 1
+    sharedPtr2(p1);  // 2  3. 所以这里传递的依然是p1的一个拷贝，不是p1本身。
+    // 和shared_ptr<int>(p1)效果相同
+    /**
+     * 如果想要传递p1本身而不是copy给函数，函数定义应该是
+     * void sharedPtr2(shared_ptr<int>& p1) {}
+     * 但是要注意，这样的话我们就不能传递临时的shared ptr。sharedPtr2(shared_ptr<int>(p1)) is error
+    */
+    cout << "after first sharedPtr2 copy: " << p1.use_count() << endl;  // 1
+   
+    sharedPtr2(shared_ptr<int>(p1));  // create a temp p,
+    cout << "after second sharedPtr2 copy: " << p1.use_count() << endl; // 1
     return 0;
 }
 /**
@@ -85,4 +110,13 @@ in sp:
 3
 4
 1 2 3 4 
+
+for shared_ptr
+before first sharedPtr2 copy: 1
+before copy: 2
+p2: 3
+after first sharedPtr2 copy: 1
+before copy: 2
+p2: 3
+after second sharedPtr2 copy: 1
 */
