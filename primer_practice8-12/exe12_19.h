@@ -23,6 +23,8 @@ public:
 
     StrBlobPtr begin();  // a funciton named begin(), return a StrBlobPtr
     StrBlobPtr end();
+    StrBlobPtr cbegin() const;
+    StrBlobPtr cend() const;
 
     StrBlob() : data(make_shared<vector<string>>()) {}
     StrBlob(initializer_list<string> il) : data(make_shared<vector<string>>(il)) {}
@@ -79,8 +81,11 @@ public:
     StrBlobPtr() : curr(0) {}
     /** data is the StrBlob obj member, is vector<string> */
     StrBlobPtr(StrBlob &a, size_t sz = 0) : wptr(a.data), curr(sz) {}
-    /** curr is size of StrBlobPtr, this is overload of != */
-    bool operator!=(const StrBlobPtr& p) { return p.curr != curr; }
+    /** for const StrBlob */
+    StrBlobPtr(const StrBlob &a, size_t sz = 0) : wptr(a.data), curr(sz) {}
+
+    /** curr is idx that StrBlobPtr located at, this is overload of != */
+    bool operator!=(const StrBlobPtr& p) { return p.curr != curr; } // for iteration
 
     string& deref() const {
         auto p = check(curr, "dereference past end"); // should return shared_ptr
@@ -122,5 +127,13 @@ StrBlobPtr StrBlob::begin() {
 
 StrBlobPtr StrBlob::end() {
     return StrBlobPtr(*this, data->size());
+}
+
+StrBlobPtr StrBlob::cbegin() const {
+    return StrBlobPtr(*this);
+}
+
+StrBlobPtr StrBlob::cend() const {
+    return StrBlobPtr(*this, data->size()); // the end of vector
 }
 #endif
