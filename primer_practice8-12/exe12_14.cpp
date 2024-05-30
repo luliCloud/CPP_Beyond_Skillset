@@ -60,6 +60,7 @@ void f(Destination& d) {
     cout << "connecting now(" << pConn.use_count() << ")" << endl;
 
     /* 而这里我们pConn仍然存在，另一个pConn就复制了它的内容，所以会有两个ptr指向一个内存。
+    这只是我们的一个测试，在primer 例子中不存在这两行
     */
     shared_ptr<Connection> anotherPConn = pConn;
     cout << "connecting now(" << pConn.use_count() << ")" << endl;
