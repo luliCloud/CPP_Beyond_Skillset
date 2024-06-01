@@ -26,6 +26,7 @@ int main() {
              * remove_copy_if 算法在你给出的情况下确实用于去除标点符号。
              * 具体来说，remove_copy_if 是从输入范围（在这个例子中是字符串 text）中复制元素到目标容器（word），同时排除那些满足特定条件（谓词函数返回 true）的元素。
              * 在这个场景中，使用的谓词函数是 ispunct，它检查字符是否为标点符号。
+             * 应该是一个一个字符插入到word，最后仍然形成正序单词，但是去掉了标点
             */
             remove_copy_if(text.begin(), text.end(), back_inserter(word), 
                 [](unsigned char c){return ispunct(c);});
@@ -51,6 +52,13 @@ int main() {
     return 0;
 }
 /**
+ * enter words to look for, or q to quit: hair  // address not recognize hair issue in
+ * exe12_27
+hair occurs 2 times
+        (line 1) Alice Emma has long flowing red hair. 
+        (line 3) through her hair, it looks almost alive, 
+enter words to look for, or q to quit: q
+
  * enter words to look for, or q to quit: yes
 yes occurs 0 time
 enter words to look for, or q to quit: hair.
