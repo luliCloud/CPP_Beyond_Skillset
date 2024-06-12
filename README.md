@@ -1,6 +1,5 @@
 # this repo for C++ learn. 
 
-1. C++ grammer 
-2. advanced C++ coding tools
-3. STL, 
-4. C21 standard
+1. C++ basic syntax, containers
+2. STL and C++ new features
+3. C++ class design tools

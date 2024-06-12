@@ -33,6 +33,11 @@ public:
         i = rhs.i;
         return *this; // assign value to every field of this obj
     }
+    // destructor
+    ~HasPtr() {
+        delete str;
+    }
+
     const string& getStr() {return *str;}
 };
 
