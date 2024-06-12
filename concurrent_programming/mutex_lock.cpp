@@ -6,7 +6,7 @@ using namespace std;
 mutex mtx;
 
 void safePrint(int n) {
-    lock_guard<mutex> lock(mtx);
+    lock_guard<mutex> lock(mtx);  // 在作用域开始时自动加锁，在作用域结束时自动解锁
     cout << n << endl;
 }
 
