@@ -59,11 +59,14 @@ int main() {
          * 外部的一个对象，那么使用 & 将允许 lambda 函数通过引用来访问 sd，
          * 并调用其 write 方法。这是一种常见的方式，特别是在需要多线程操作外部变量或对象时。
          */
-        writer[i] = thread([&](){ return sd.write(42); });
+        writer[i] = thread([&](){ sd.write(42); });
     }
 
     for (int i = 0; i < 3; i++) {
-        reader[i] = thread([&](){return sd.read(); });
+        /** 为什么这里lambda不需要return。因为reader实际是thread arr。所以它需要的thread对象
+         * 那么sd。read返回的结果是不重要的。lambda函数在这里的作用就是让这个thread执行一个函数，也就是read
+         */
+        reader[i] = thread([&](){ sd.read(); });
     }
 
     writer[0].join();
