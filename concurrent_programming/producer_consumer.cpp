@@ -16,7 +16,9 @@ condition_variable cv;
 queue<int> product;
 
 void producer(int id) {
-    for (int i = 0; i < 5; i++) {
+    for (int i = 0; i < 5; i++) { 
+        // 注意这五个iteration共用一个线程，不会因为thread（producer，i）而开创新的线程
+        // 每个线程每次只是休息。在main里一共会创建四个thread
         unique_lock<mutex> lock(mtx);
         // no need to cv.wair, as it is write data, don't need for other producer update
         product.push(id * 100 + i);
