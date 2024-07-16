@@ -6,7 +6,7 @@
 #include <rocksdb/slice.h>
 #include <iostream>
 /** main API of rocksdb: open, write, read
- * bash compile the file:
+ * bash compile the file: noting usinbg C++17 and beyond, otherwise cannot recognize
  * g++ -std=c++17 -I./rocksdb/include -L./rocksdb -o my_program write_read_rocksdb_simple_case1.cpp -lrocksdb -lz -lbz2 -lsnappy -llz4 -lzstd -pthread
  */
 int main() {
