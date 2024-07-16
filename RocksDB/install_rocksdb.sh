@@ -18,6 +18,7 @@ sudo make install
 
 echo "RocksDB installation complete."
 
-# run this sh 
+# run this sh under the working dir you will run your script. otherwise defined the 
+# searching pathway when compile for include (header files) and lib files
 # chmod 667 install_rocskdb.sh
 # sudo ./install_rocksdb.sh
