@@ -18,5 +18,9 @@ Implementation of base SSTable (insert, search) and structure(data block, index 
 ### `Bloom filter`
 Implementation of Bloom filter, including the hash function using std lib, bitset that is the inner structure of bloom filter, and insert/search key inside bloom filter. 
 
+### `compact_and_cache.cpp`
+A simple example of compress data, store compressed data with key in cache, find kv in cache using key and decompressing data to the original one. 
+
+
 ### `rocksdb`
 Cloned rocksdb repository. 
