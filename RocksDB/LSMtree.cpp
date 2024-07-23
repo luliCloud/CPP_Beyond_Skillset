@@ -1,4 +1,5 @@
 /** mimic the writing process of LSMtree in rocksdp
+ * 注意：MemTable就是RocksDB的write buffer（写缓冲区）
  * Log-structured Merge-tree 是RocksDB的核心数据结构，为了优化写入性能设计的一种多版本并发控制
  * MVCC 数据模型。LSM tree由多层结构组成，每层都是一个不可变的有序的kv store
  * 
