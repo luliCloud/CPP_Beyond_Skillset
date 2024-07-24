@@ -33,5 +33,11 @@ No matter point loop up or range loop up (the key falls into a range [key1, key2
 ### `optimistic_lock.cpp`
 Optimistic lock generally used to less-frequent read scenario. We implement it using atomic template with inner functions and compare_exchange_weak function.
 
+### `read_write_process_isolate.cpp`
+Isolating the write and read request (avoid mutex competition) using mutex and conditional variable, thread, and lambda for thread constructor"
+
+### `thread_pool.cpp`
+Thread pool using mutex, conditional variable, wait, thread, function. When the thread pool is originally created, all threads inside just wait, until the tasks queue has task being pushed. 
+
 ### `rocksdb`
 Cloned rocksdb repository. 
