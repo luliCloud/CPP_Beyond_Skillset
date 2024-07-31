@@ -39,5 +39,14 @@ Isolating the write and read request (avoid mutex competition) using mutex and c
 ### `thread_pool.cpp`
 Thread pool using mutex, conditional variable, wait, thread, function. When the thread pool is originally created, all threads inside just wait, until the tasks queue has task being pushed. 
 
+### `WAL.cpp`
+Define WAL class. Write operation to WAL and replay the WAL after crash.
+
+### `rockslib_persistence_config.cpp`
+Using rocksdb lib to set persistence config such as forbid WAL, compression (not working yet)
+
+### `performance_base_test.cpp`
+Using chrono and thread to mimic the time cost of operation in database. Testing the real performance of db ope.
+
 ### `rocksdb`
 Cloned rocksdb repository. 
