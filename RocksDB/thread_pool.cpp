@@ -76,7 +76,10 @@ int main() {
     ThreadPool pool;
     pool.start(4); // 创建四个工作线程。这时候都在等待，因为tasks中是没有task（函数）的
 
-// 当tasks中开始添加task后，线程就会启动。
+// 当tasks中开始添加task后，线程就会启动。lambda函数就是传入addTask中的function<void()> task
+// 这里在tasks 中加入task后，workers中在等待的四个线程就是开始运作。其中一个唤醒。
+// 注意这两个task应该是几乎同时加入tasks队列中。所以不存在处理完第一个就因为stop return
+// 另外注意worker中才是线程池。
     pool.addTask(
         []() { cout << "Task1 executed by thread " << this_thread::get_id() << endl; }
     );
