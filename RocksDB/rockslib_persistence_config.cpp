@@ -1,4 +1,5 @@
 /** RocksDB提供了多种持久化相关的config，如WAL的禁用，SSTable的压缩策略等 */
+// compression 选项用不上。还没有debug
 #include <iostream>
 #include <rocksdb/db.h>
 #include <rocksdb/convenience.h>
