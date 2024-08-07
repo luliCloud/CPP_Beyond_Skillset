@@ -48,5 +48,14 @@ Using rocksdb lib to set persistence config such as forbid WAL, compression (not
 ### `performance_base_test.cpp`
 Using chrono and thread to mimic the time cost of operation in database. Testing the real performance of db ope.
 
+### `rockslib_advanced_config.cpp`
+Advanced config of rocksdb e.g. compaction, options...
+
+### `backup+recovery.cpp`
+Using archive for file backup and recovery. Not related to rocksdb directly but is importnat for database backup. 
+
+### `backup_recoverII_tar.cpp`
+Recover dir and file and content from archived tar file.
+
 ### `rocksdb`
 Cloned rocksdb repository. 
