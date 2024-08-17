@@ -40,7 +40,7 @@ void restoreData(const string& backupFilePath, const string& restoreDir) {
     }
     archive_read_free(a);
 }
-
+/** 基本来说就是用file。state文件来找到最新backup的时间，然后用这个时间来找到备份的文件中文件名里有这个时间戳的文件。然后恢复它 */
 void disasterRecoveryPlan(const string& backupDir, const string& systemStateFile) {
     // check system state file, ensure recovery point
     ifstream stateFile(systemStateFile);
