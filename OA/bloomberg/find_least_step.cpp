@@ -5,6 +5,7 @@ the front of the queue, in which step should be alwasy less than later one*/
 #include <queue>
 #include <vector>
 #include <set>
+#include <unordered_set>
 #include <iostream>
 using namespace std;
 
@@ -52,10 +53,50 @@ public:
     }
 };
 
+int findMinStep(int target) {
+    // store every value start from 1 and step taken as a pair {value, step} in a queue
+    // must pop out one value, and calculate both times 2 and /3 at the same loop using one 
+    // value, otherwise, the 2nd /3 may segmentation fault. 
+    // so check the first 1 == target first
+    if (target == 1) {
+        return 0;
+    }
+
+    queue<pair<int, int>> q;
+    q.push({1, 0}); // {val, step}
+    unordered_set<int> seen;
+    
+    while (!q.empty()) {
+        auto p = q.front();
+        q.pop();
+        int val = p.first, step = p.second;
+
+        if (val * 2 == target) {
+            return step + 1;
+        }
+        if (!seen.count(val * 2)) {
+            seen.insert(val * 2);
+            q.push({val * 2, step + 1});
+        }
+
+        if (val / 3 == target) {
+            return step + 1;
+        }
+        if (!seen.count(val / 3)) {
+            seen.insert(val / 3);
+            q.push({val / 3, step + 1});
+        }
+    }
+    return -1;
+}
+
 int main() {
     FindMinStep fs;
     int res = fs.find_min_step(3);
     cout << res << endl;
+
+    int res2 = findMinStep(3);
+    cout << res2 << endl;
     return 0;
 }
 
