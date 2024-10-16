@@ -11,6 +11,7 @@ public:
     }
 
     BigInt(const vector<int>& digits);
+    BigInt(const vector<char>& digits);
     BigInt(const char* digits, int size);
 
     // friend function can visit other BigInt private members
