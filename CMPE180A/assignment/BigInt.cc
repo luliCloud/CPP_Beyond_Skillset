@@ -424,70 +424,70 @@ ostream& operator<<(ostream& os, const BigInt& bi) {
     return os;
 }
 
-int main() {
-    vector<int> digits0 = {-2,0,0, 3, 4, 5}; // 2345
-    BigInt bi0(digits0);
-    cout << "bi0: ";
-    bi0.print();
+// int main() {
+//     vector<int> digits0 = {-2,0,0, 3, 4, 5}; // 2345
+//     BigInt bi0(digits0);
+//     cout << "bi0: ";
+//     bi0.print();
 
-    vector<char> digits = {'-', '0', '0', '2', '3', '4', '5'}; // -2345
-    BigInt bi1(digits);
-    cout << "bi1: ";
-    bi1.print();
+//     vector<char> digits = {'-', '0', '0', '2', '3', '4', '5'}; // -2345
+//     BigInt bi1(digits);
+//     cout << "bi1: ";
+//     bi1.print();
 
-    const char* str = "-0012345"; // -12345
-    BigInt bi2(str,8);
-    cout << "bi2: ";
-    bi2.print();
+//     const char* str = "-0012345"; // -12345
+//     BigInt bi2(str,8);
+//     cout << "bi2: ";
+//     bi2.print();
 
-    BigInt bi3 = bi1 + bi2; // -14690
-    cout << "bi3: ";
-    bi3.print();
+//     BigInt bi3 = bi1 + bi2; // -14690
+//     cout << "bi3: ";
+//     bi3.print();
 
-    BigInt bi4 = BigInt("2346", 4) - bi1; // 2346 - (-2345) = 4691
-    BigInt bi5 = bi2 - bi1; // -12345 - (-2345) = -10000
-    cout << "bi4: ";
-    bi4.print();
-    cout << "bi5: ";
-    bi5.print();
+//     BigInt bi4 = BigInt("2346", 4) - bi1; // 2346 - (-2345) = 4691
+//     BigInt bi5 = bi2 - bi1; // -12345 - (-2345) = -10000
+//     cout << "bi4: ";
+//     bi4.print();
+//     cout << "bi5: ";
+//     bi5.print();
 
-    vector<int> digits2 = {1, 2, 3};
-    BigInt bi6 = BigInt(digits2) * BigInt("123", 3); // 15129
-    cout << bi6 << endl;
+//     vector<int> digits2 = {1, 2, 3};
+//     BigInt bi6 = BigInt(digits2) * BigInt("123", 3); // 15129
+//     cout << bi6 << endl;
 
    
-    if (bi4 == bi5) {
-         cout << "bi4 == bi5";
-    } else {
-        cout << "bi4 != bi5";
-    }
-    cout << endl;
+//     if (bi4 == bi5) {
+//          cout << "bi4 == bi5";
+//     } else {
+//         cout << "bi4 != bi5";
+//     }
+//     cout << endl;
     
-    if (!bi4) { // if 0 enter this condition
-        cout << "bi4 == 0";
-    } else { // otherwise must enter this, no matter what it is.
-        cout << "bi4 != 0";
-    }
-    cout << endl;
+//     if (!bi4) { // if 0 enter this condition
+//         cout << "bi4 == 0";
+//     } else { // otherwise must enter this, no matter what it is.
+//         cout << "bi4 != 0";
+//     }
+//     cout << endl;
 
-    cout << "bi2 >= bi3?: " << (bi2 >= bi3) << endl;
-    cout << "bi2 <= bi3?: " << (bi2 <= bi3) << endl;
+//     cout << "bi2 >= bi3?: " << (bi2 >= bi3) << endl;
+//     cout << "bi2 <= bi3?: " << (bi2 <= bi3) << endl;
 
-    bi1++;
-    bi1.print();
-    bi1--;
-    bi1.print();
+//     bi1++;
+//     bi1.print();
+//     bi1--;
+//     bi1.print();
 
-    --bi2;
-    bi2.print();
-    ++bi2;
-    bi2.print();
+//     --bi2;
+//     bi2.print();
+//     ++bi2;
+//     bi2.print();
 
 
-    cout << bi2 << endl;
-    istringstream input("0001356748326356");
-    input >>  bi2;
-    cout << bi2 << endl;
+//     cout << bi2 << endl;
+//     istringstream input("0001356748326356");
+//     input >>  bi2;
+//     cout << bi2 << endl;
 
-    return 0;
-}
+//     return 0;
+// }
