@@ -2,6 +2,7 @@
 #include <stack>
 #include <algorithm>
 #include <string>
+#include <unordered_map>
 using namespace std;
 
 string candy_crush(const string& s) {
@@ -41,6 +42,39 @@ string candy_crush(const string& s) {
     return res;
 }
 
+unordered_map<string, string> mp; // string->shortest sub string after erase
+string candyCrushFollowup(const string& s) {
+    if (s == "") {
+        return "";
+    }
+
+    if (mp.count(s)) {
+        return mp[s];
+    }
+
+    // support shortest substring is this s itself
+    string min_str = s;
+    for (int i = 0; i < s.size(); i++) {
+        int j = i + 1;
+        while (j < s.size() && s[j] == s[i]){
+            j++;
+        }
+        string newStr = s;  // noting here !
+        if (j - i  >= 3) {
+            if (j == s.size()) {
+                newStr = candyCrushFollowup(s.substr(0, i)); // delete i itself, so 0, i
+            } else {
+                newStr = candyCrushFollowup(s.substr(0, i) + s.substr(j));
+            }
+        }
+        if (newStr.size() < min_str.size()) {
+            min_str = newStr;
+        }
+    }
+    mp[s] = min_str;
+    return min_str;
+}
+
 int main() {
     string s1 = "aabbccddeeedcba";
     string res1 = candy_crush(s1);
@@ -53,6 +87,10 @@ int main() {
     string s3 = "aaabbbacd";
     string res3 = candy_crush(s3);
     cout << res3 << endl;
+
+    string input = "aaabbbacd"; // cd
+    string result = candyCrushFollowup(input);
+    cout << "Shortest result: " << result << endl;
 
     return 0;
 }
