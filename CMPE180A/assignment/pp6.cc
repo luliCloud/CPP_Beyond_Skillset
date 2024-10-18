@@ -23,10 +23,10 @@ string mergeString(const vector<string> &a) {
     return res;
 }
 
-int main() {
-    vector<string> a = {"abc", "e", "defghji"};
+// int main() {
+//     vector<string> a = {"abc", "e", "defghji"};
 
-    string res = mergeString(a);
-    cout << res << endl;
-    return 0;
-}
+//     string res = mergeString(a);
+//     cout << res << endl;
+//     return 0;
+// }
