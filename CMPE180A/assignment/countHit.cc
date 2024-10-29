@@ -3,6 +3,11 @@
 #include "countHit.h"
 using namespace std;
 
+/** Complexity analysis:
+ * Time complexity: O(N), as every Asteroid only be pushed to and pop from the stack for once
+ * Space complexity: O(N). The worst case, all asteroid will end up in the stack if they all move in
+ * the same direction.
+ */
 int countHit(vector<Asteroid> a) {
     stack<Asteroid> st;
 
@@ -50,16 +55,16 @@ int countHit(vector<Asteroid> a) {
     return res;
 }
 
-int main() {
-    Asteroid a, b, c, d;
-    a.m = 10, a.d = Direction::right;
-    b.m = 11, b.d = Direction::left;
-    c.m = 11, c.d = Direction::right;
-    d.m = 5, d.d = Direction::left;
-    vector<Asteroid> arr = {a,b,c,d};
+// int main() {
+//     Asteroid a, b, c, d;
+//     a.m = 10, a.d = Direction::right;
+//     b.m = 11, b.d = Direction::left;
+//     c.m = 11, c.d = Direction::right;
+//     d.m = 5, d.d = Direction::left;
+//     vector<Asteroid> arr = {a,b,c,d};
 
-    int res = countHit(arr);
-    cout << res << endl;
+//     int res = countHit(arr);
+//     cout << res << endl;
 
-    return 0; 
-}
+//     return 0; 
+// }
