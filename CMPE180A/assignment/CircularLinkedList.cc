@@ -22,7 +22,7 @@ ostream& operator<<(ostream& os, const CircularLinkedList& other) {
     }
 
     Node* curr = other.head;
-    cout << "{ ";
+    os << "{ ";
     while (true) {
         os << curr->val;
         curr = curr->next;
@@ -67,12 +67,12 @@ void CircularLinkedList::push(int i, ClockDirection d) {
 // pop method
 int CircularLinkedList::pop(ClockDirection d) {
     if (head == nullptr) {
-        throw runtime_error("List is empty. Cannot pop any dnoe from the current list.");
+        throw runtime_error("List is empty. Cannot pop any node from the current list.");
     }
     int val = head->val;
     if (head->next == head) {
         delete head;
-        head == nullptr;
+        head = nullptr;
         size--;
         return val;
     }
@@ -82,7 +82,7 @@ int CircularLinkedList::pop(ClockDirection d) {
     Node* headNext = head->next;
     tail->next = headNext;
     headNext->prev = tail;
-    delete head; // release the mem head point
+    delete currHead; // release the mem head point
 
     if (d == ClockDirection::ClockWise) {
         head = headNext;
